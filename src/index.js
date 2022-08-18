@@ -125,6 +125,56 @@ const CARD_TEAM=[
     description:' Руководитель отдела производства сайтов'
   }
 ];
+
+const SERVICE = [
+  {title:'На WordPress'},
+  {title:'На Tilda'},
+  {title:'Сайт-визитка'},
+  {title:'Интернет-магазин'},
+  {title:'Проектирование'},
+  {title:'Разработка личного кабинета'},
+];
+
+const SUPPORT = [
+  {title:'Тарифы'},
+  {title:'Юзабилити-аудит'},
+  {title:'Функциональное тестирование'},
+  {title:'Для интернет-магазина'},
+  {title:'Смена хостинга'},
+];
+
+const SMM=[
+  {title:'Цены'},
+  {title:'Создание и ведение групп'},
+  {title:'SMM-аудит'},
+  {title:'Таргетированная реклама'},
+  {title:'Facebook'},
+  {title:'Instagram'}
+];
+
+const MORE_SERVICE = [
+  {title:'Услуги 1С'},
+  {title:'Внедрение 1С'},
+  {title:'Сопровождение 1С'},
+  {title:'Мобильные приложения'},
+  {title:'Продвижение в Маркетплейсах'},
+];
+
+const INFORMATION = [
+  {title:'О компании'},
+  {title:'Корпоративные ценности'},
+  {title:'Отзывы клиентов'},
+  {title:'Достижения'},
+  {title:'Наша команда'},
+  {title:'Наши клиенты'},
+  {title:'Портфолио'},
+  {title:'Новости'},
+  {title:'Ответы на вопросы'},
+  {title:'Партнерская программа'},
+  {title:'Онлайн-заявка'},
+  {title:'Контакты'},
+];
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div className='App'>
@@ -133,6 +183,6 @@ root.render(
     <ContentSection content={CARD_CONTENT}/>
     <OrderSection order={CARD_ORDER}/>
     <TeamSection team={CARD_TEAM}/>
-    <Footer/>
+    <Footer service={SERVICE} support={SUPPORT} smm={SMM} more_service={MORE_SERVICE} information={INFORMATION} />
   </div>
 );
