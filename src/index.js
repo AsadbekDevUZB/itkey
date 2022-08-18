@@ -1,17 +1,138 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './style/style.css';
+import NavBar from './navBar';
+import Header from  './header';
+import ContentSection from './contentSection';
+import OrderSection from './orderSection';
+import TeamSection from './teamSection';
+import Footer from './footer';
 
+
+const CARD_CONTENT=[
+  {
+    title:'Опыт',
+    src:'https://itkey.uz/static/media/experience.2a07627657d2d8b82acb1891ba1b125f.svg',
+    description:"Опыт сотрудников нашей компании от разработки веб сайтов и мобильных приложений до внедрения CRM систем и IP телефонии позволит сделать Ваш бизнес заметным винтернете и привлечь ещё больше клиентов, которым будет удобно и приятно с Вами взаимодействовать."
+  },
+  {
+    title:'Инициативность',
+    src:'https://itkey.uz/static/media/initiative.e579c745ce0d19e3ddf55639d73a3ecb.svg',
+    description:"Благодаря собственному отделу аналитики, наши специалисты постоянно мониторят новые возможности и тренды для развития и продвижения сайтов, а разработчики готовы внедрять новейшие виджеты для лучшей результативности Вашего бизнеса в интернете."
+  },
+  {
+    title:'Доведение до результата',
+    src:'https://itkey.uz/static/media/result.9aed8af923ff7798b6c493efba0b581b.svg',
+    description:'Грамотное брифование позволит лучше понять задачи Вашего бизнеса, которые можно решить с помощью сайта, а внимательность и ответственность наших специалистов гарантирует 100% результат и доведение всех работ до успешного финала.'
+  },
+  {
+    title:'Прозрачность работы',
+    src:'https://itkey.uz/static/media/transparency.6f0b42d2529e50c80862a32d680ce2ec.svg',
+    description:'Все задачи по каждому проекту мы добавляем в личный кабинет, к которому у Вас всегда будет доступ. Таким образом, Вы сможете наблюдать за этапами работ и сроками в реальном времени.'
+  },
+  {
+    title:'Справедливая цена',
+    src:'https://itkey.uz/static/media/pricing.00911100b536a0a09279cd6a05675546.svg',
+    description:'Стоимость рассчитывается персонально для каждого проекта и максимально прозрачна с учётом всех целей Вашего сайта.'
+  },
+  {
+    title:'Личный менеджер',
+    src:'https://itkey.uz/static/media/manager.bb1aff862a320f6cec62574667ad00ee.svg',
+    description:'Со стартом работы за Вами будет закреплён персональный менеджер. Благодаря нашей системе мотивации, он будет на связи 24/7 и заинтересован в скорейшем запуске сайта.'
+  }
+]; 
+
+const CARD_ORDER=[
+  {
+    title:'Разработка мобильных приложений',
+    src:'https://itkey.uz/static/media/corporative.751190646ea0ee2e2ea189f50b3a3f40.svg',
+    description:'Если основная часть Ваших клиентов активно пользуется мобильными гаджетами, а Вы хотите упростить бизнес-процессы – рекомендуем разработку мобильного приложения для Вашего бизнеса. Современный дизайн, понятный интерфейс и удобный функционал создадут наши разработчики.',
+    price:'340000'
+  },
+  {
+    title:'Внедрение CRM систем',
+    src:"https://itkey.uz/static/media/corporative.751190646ea0ee2e2ea189f50b3a3f40.svg",
+    description:"Для достижения максимальных результатов, чтобы сэкономить рабочее время Ваших сотрудников и обеспечить бесперебойное обслуживание клиентов мы поможем внедрить CRM систему, а также обеспечим полное сопровождение.",
+    price:'340000'
+  },
+  {
+    title:'IP телефония',
+    src:'https://itkey.uz/static/media/corporative.751190646ea0ee2e2ea189f50b3a3f40.svg',
+    description:'Чтобы всегда быть на связи со своими клиентами и не упустить ни одного важного звонка, наши специалисты подключат для Вас IP телефонию. Это современное и удобное решение для кол-центров отделов продаж и других предприятий.',
+    price:'340000'
+  },
+  {
+    title:'Корпоративный сайт',
+    src:'https://itkey.uz/static/media/corporative.751190646ea0ee2e2ea189f50b3a3f40.svg',
+    description:'Чтобы всегда быть на связи со своими клиентами и не упустить ни одного важного звонка, наши специалисты подключат для Вас IP телефонию. Это современное и удобное решение для кол-центров отделов продаж и других предприятий.',
+    price:'340000',
+  },
+  {
+    title:'Внедрение CRM систем',
+    src:"https://itkey.uz/static/media/corporative.751190646ea0ee2e2ea189f50b3a3f40.svg",
+    description:"Для достижения максимальных результатов, чтобы сэкономить рабочее время Ваших сотрудников и обеспечить бесперебойное обслуживание клиентов мы поможем внедрить CRM систему, а также обеспечим полное сопровождение.",
+    price:'340000'
+  },
+  {
+    title:'IP телефония',
+    src:'https://itkey.uz/static/media/corporative.751190646ea0ee2e2ea189f50b3a3f40.svg',
+    description:'Чтобы всегда быть на связи со своими клиентами и не упустить ни одного важного звонка, наши специалисты подключат для Вас IP телефонию. Это современное и удобное решение для кол-центров отделов продаж и других предприятий.',
+    price:'340000'
+  },
+  {
+    title:'Разработка мобильных приложений',
+    src:'https://itkey.uz/static/media/corporative.751190646ea0ee2e2ea189f50b3a3f40.svg',
+    description:'Если основная часть Ваших клиентов активно пользуется мобильными гаджетами, а Вы хотите упростить бизнес-процессы – рекомендуем разработку мобильного приложения для Вашего бизнеса. Современный дизайн, понятный интерфейс и удобный функционал создадут наши разработчики.',
+    price:'570000'
+  },
+  {
+    title:'Внедрение CRM систем',
+    src:"https://itkey.uz/static/media/corporative.751190646ea0ee2e2ea189f50b3a3f40.svg",
+    description:"Для достижения максимальных результатов, чтобы сэкономить рабочее время Ваших сотрудников и обеспечить бесперебойное обслуживание клиентов мы поможем внедрить CRM систему, а также обеспечим полное сопровождение.",
+    price:'340000'
+  },
+  {
+    title:'IP телефония',
+    src:'https://itkey.uz/static/media/corporative.751190646ea0ee2e2ea189f50b3a3f40.svg',
+    description:'Чтобы всегда быть на связи со своими клиентами и не упустить ни одного важного звонка, наши специалисты подключат для Вас IP телефонию. Это современное и удобное решение для кол-центров отделов продаж и других предприятий.',
+    price:'340000'
+  }
+];
+
+const CARD_TEAM=[
+  {
+    surname:'Иванов',
+    description:' Руководитель отдела создания сайтов'
+  },
+  {
+    surname:'Петров',
+    description:'Главный дизайнер'
+  },
+  {
+    surname:'Сидоров',
+    description:' Программист'
+  },
+  {
+    surname:'Иванов',
+    description:' Программист'
+  },
+  {
+    surname:'Петров',
+    description:'Frontend разработчик'
+  },
+  {
+    surname:'Сидоров',
+    description:' Руководитель отдела производства сайтов'
+  }
+];
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <div className='App'>
+    <NavBar/>
+    <Header/>
+    <ContentSection content={CARD_CONTENT}/>
+    <OrderSection order={CARD_ORDER}/>
+    <TeamSection team={CARD_TEAM}/>
+    <Footer/>
+  </div>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
